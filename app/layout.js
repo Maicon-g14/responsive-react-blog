@@ -1,8 +1,9 @@
-import React from 'react'
+"use client";
 
+import React, { useEffect, useState } from 'react'
+import { Layout } from '../components'
 import '../styles/globals.scss'
 import { Inter } from 'next/font/google'
-import { Layout } from '../components'
 
 const inter = Inter({ subsets: ['latin'] })
 
