@@ -65,11 +65,10 @@ const PostDetail = ({ post }) => {
 		<>
 			<div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
 				<div className="relative overflow-hidden shadow-md mb-6">
-					<Image
+					<img
 						src={post.featuredImage.url}
 						alt=""
-						className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg"
-						layout="fill"
+						className="object-top h-full w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg"
 					/>
 				</div>
 				<div className="px-4 lg:px-0">
@@ -89,7 +88,7 @@ const PostDetail = ({ post }) => {
 						<div className="font-medium text-gray-700">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
-								className="h-6 w-6 inline mr-2 text-pink-500"
+								className="h-6 w-6 inline mr-2 text-green-500"
 								fill="none"
 								viewBox="0 0 24 24"
 								stroke="currentColor"

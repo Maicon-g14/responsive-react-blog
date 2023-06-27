@@ -9,15 +9,14 @@ const PostCard = ({ post }) => {
 	return (
 		<div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
 			<div className="relative overflow-hidden shadow-md pb-80 mb-6">
-				<Image
+				<img
 					src={post.featuredImage.url}
 					alt={`Post featured Image - ${post.title}`}
 					className="object-top absolute h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg"
-					layout="fill"
 				/>
 			</div>
-			<h1 className="transition duration-700 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
-				<Link href={`/post/${post.slug}`} passHref>
+			<h1 className="transition duration-700 text-center mb-8 cursor-pointer hover:text-green-600 text-3xl font-semibold">
+				<Link href={`/post/${post.slug}`}>
 					{post.title}
 				</Link>
 			</h1>
@@ -60,7 +59,7 @@ const PostCard = ({ post }) => {
 				{post.excerpt}
 			</p>
 			<div className="text-center">
-				<Link href={`/post/${post.slug}`} passHref>
+				<Link href={`/post/${post.slug}`}>
 					<span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-green-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">
 						Continue Reading
 					</span>
