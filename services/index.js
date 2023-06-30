@@ -2,12 +2,23 @@ import { request, gql } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
-export const getPosts = async () => {
+export const getPosts = async (postsPerPage=null, before=null, after=null) => {
+	let first = null;
+	let last = null;
+
+	//first can only be used with after and last with before
+	if (before) {
+		last = postsPerPage;
+	} else {
+		first = postsPerPage;
+	}
+
 	const query = gql`
 		query Assets {
-			postsConnection {
+			postsConnection(first: ${first}, after: ${after}, last: ${last}, before: ${before}) {
 				edges {
 					node {
+						id
 						author {
 							bio
 							id
@@ -36,6 +47,20 @@ export const getPosts = async () => {
 	const result = await request(graphqlAPI, query);
 
 	return result.postsConnection.edges;
+};
+
+export const getPostsId = async () => {
+	const query = gql`
+		query Assets {
+			posts(stage: PUBLISHED) {
+				id
+			}
+		}
+	`;
+
+	const result = await request(graphqlAPI, query);
+
+	return result.posts;
 };
 
 export const getCategories = async () => {
