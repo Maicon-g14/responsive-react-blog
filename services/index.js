@@ -2,7 +2,11 @@ import { request, gql } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
-export const getPosts = async (postsPerPage=null, before=null, after=null) => {
+export const getPosts = async (
+	postsPerPage = null,
+	before = null,
+	after = null
+) => {
 	let first = null;
 	let last = null;
 
